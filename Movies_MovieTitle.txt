@@ -1,0 +1,117 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           Movie Title
+
+Specification Type:
+  Unique:  X
+  Generic: _ 
+  Replica: _ 
+Parent Table:         Movies
+Label:                MovieTitle 
+Source Specification: _ 
+Shared By:            _ 
+Aliases:              _ 
+Description:          The title of a given film within the database. 
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            Alphanumeric
+Length:               180
+Decimal Places:       None
+Input Mask:           _ 
+Display Format:       Each important word should be capitalized (nouns/verbs)
+Character Support:
+  Letters (A-Z):      X
+  Numbers (0-9):      X
+  Keyboard (.,/$#%):  X
+  Special (©®™Σπ):    X
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        X
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: X
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   X 
+
+Values Entered By: User:   X 
+                   System: _ 
+
+Required Value:    No:     _ 
+                   Yes:    X 
+
+Default Value:     _ 
+
+Range of Values:   _ 
+
+Edit Rule:
+  Enter now, edits allowed:       X
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   X
+                ALL  _ 
+                =    X 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  X 
+                ALL  _ 
+                =    X 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES: Title length decided by finding the worlds longest movie title, coming in at 168 characters, and upping this by 12 just to be safe
+
