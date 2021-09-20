@@ -12,7 +12,7 @@ CREATE DATABASE movie_ratings;
 USE movie_ratings;
 
 
-/* Create the tables */
+/* Create the movies table */
 CREATE TABLE movies (
     PRIMARY KEY (movie_id),
     movie_id         INT AUTO_INCREMENT,     
@@ -21,6 +21,7 @@ CREATE TABLE movies (
     genre          VARCHAR(50)
 );
 
+/* Create the consumers table */
 CREATE TABLE consumers (
     PRIMARY KEY (consumer_id),
     consumer_id   INT AUTO_INCREMENT,
@@ -81,20 +82,21 @@ CREATE DATABASE movie_ratings;
 USE movie_ratings;
 
 
-/* Create the tables */
+/* Create the movies table */
 CREATE TABLE movies (
     PRIMARY KEY (movie_id),
     movie_id         INT AUTO_INCREMENT,     
     movie_title        VARCHAR(180),
     release_date    DATE
 );
-
+/* Create the new genres table */
 CREATE TABLE genres (
     PRIMARY KEY (genre_id),
     genre_id         INT AUTO_INCREMENT,     
     genre_type        VARCHAR(20)
 );
 
+/* Create the linking table for movies and genres */
 CREATE TABLE movie_linking_genre (
   PRIMARY KEY (genre_id, movie_id),
   genre_id         INT,
@@ -103,7 +105,7 @@ CREATE TABLE movie_linking_genre (
   FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
 );
 
-
+/* Create the consumers table */
 CREATE TABLE consumers (
     PRIMARY KEY (consumer_id),
     consumer_id   INT AUTO_INCREMENT,
@@ -115,6 +117,7 @@ CREATE TABLE consumers (
     consumer_zipcode              INT
 );
 
+/* Create the ratings table */
 CREATE TABLE ratings (
   PRIMARY KEY (movie_id, consumer_id),
   movie_id         INT,
@@ -125,14 +128,7 @@ CREATE TABLE ratings (
     number_stars INT
 );
 
-/* Populate the tables with sample data 
-INSERT INTO authors (name_last, name_first, country)
-VALUES ('Kafka', 'Franz', 'Czech Republic');
-*/
-
-/* Note: In the tutorial, there were two INSERT commands.  However,
-   there is no need for that here, so I have just combined them into a
-   single insertion with 4 values. */
+/* Populate the tables */
 INSERT INTO movies (movie_title, release_date)
 VALUES ('The Hunt For Red October','1990-03-02'),
        ('Lady Bird','2017-12-01'),
@@ -171,7 +167,7 @@ VALUES ('1','1','2010-09-02 10:54:19','4'),
        ('2','3','2017-03-27 00:12:48','2'),
        ('2','4','2018-08-02 00:54:42','4');
 
-       /* Generate a report */
+       /* Generate reports */
 SELECT consumer_first_name, consumer_last_name, movie_title, number_stars
   FROM movies
        NATURAL JOIN ratings
@@ -181,4 +177,5 @@ SELECT movie_title,genre_type
 FROM movies
     NATURAL JOIN movie_linking_genre
     NATURAL JOIN genres;
+
 
