@@ -1,0 +1,54 @@
+BUSINESS RULE SPECIFICATIONS
+
+RULE INFORMATION
+
+Statement:  Customers are customers for life, and can't have their records removed
+
+Constraint: Customer records can't be deleted, only set as inactive
+
+Type:     Database Oriented:     X
+          Application Oriented   _ 
+
+Category: Field Specific:        _ 
+          Relationship Specific: X
+
+Test On:  Insert:                _ 
+          Delete:                X
+          Update:                _
+
+
+STRUCTURES AFFECTED
+
+Field Names: _
+
+Table Names: Customers,Trials,Purchases
+
+
+FIELD ELEMENTS AFFECTED
+
+Physical Elements: Data Type:           _ 
+                   Length:              _ 
+                   Decimal Places:      _ 
+                   Character Support:   _ 
+                   Input Mask:          _ 
+                   Display Format:      _ 
+
+Logical Elements:  Key Type:            _ 
+                   Key Structure:       _ 
+                   Uniqueness:          _ 
+                   Null Support:        _ 
+                   Values Entered By:   _ 
+                   Default Value:       _ 
+                   Range of Values:     _ 
+                   Comparisons Allowed: _ 
+                   Operations Allowed:  _ 
+                   Edit Rule:           _ 
+
+
+ACTION TAKEN
+
+An "isInactive" field was added to the Customers table. A Deny deletion rule was also added between Customers and Purchases and Customers and Trials. 
+
+
+NOTES: _
+

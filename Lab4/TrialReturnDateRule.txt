@@ -1,0 +1,54 @@
+BUSINESS RULE SPECIFICATIONS
+
+RULE INFORMATION
+
+Statement:  If a customer chooses to buy a rug after their trial, no return date is recorded
+
+Constraint: An entry doesn't have to be made in the Trial Date Returned Field. It can be null
+
+Type:     Database Oriented:     X
+          Application Oriented   _ 
+
+Category: Field Specific:        X
+          Relationship Specific: _ 
+
+Test On:  Insert:                X
+          Delete:                _ 
+          Update:                _
+
+
+STRUCTURES AFFECTED
+
+Field Names: Trial Date Returned
+
+Table Names: _
+
+
+FIELD ELEMENTS AFFECTED
+
+Physical Elements: Data Type:           _ 
+                   Length:              _ 
+                   Decimal Places:      _ 
+                   Character Support:   _ 
+                   Input Mask:          _ 
+                   Display Format:      _ 
+
+Logical Elements:  Key Type:            _ 
+                   Key Structure:       _ 
+                   Uniqueness:          _ 
+                   Null Support:        X
+                   Values Entered By:   _ 
+                   Default Value:       _ 
+                   Range of Values:     _ 
+                   Comparisons Allowed: _ 
+                   Operations Allowed:  _ 
+                   Edit Rule:           X
+
+
+ACTION TAKEN
+
+Null support on Trial Date Returned was set to nulls allowed. Edit rule changed to "Enter Later, edits allowed"
+
+
+NOTES: _
+
