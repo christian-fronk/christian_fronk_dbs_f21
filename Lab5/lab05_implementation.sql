@@ -19,9 +19,9 @@ CREATE TABLE rugs (
     style     VARCHAR(50),
     main_material       VARCHAR(50),
     dimensions        VARCHAR(6),
-    purchase_price DECIMAL,
+    purchase_price DECIMAL(8,2),
     date_acquired     DATE,
-    markup_percent DECIMAL
+    markup_percent DECIMAL (6,2)
 );
 
 
@@ -50,7 +50,7 @@ CREATE TABLE purchases (
   FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
   FOREIGN KEY (rug_id) REFERENCES rugs(rug_id) ON DELETE RESTRICT,/* See biz rule SaleDateRule*/
     sale_date DATE DEFAULT CURRENT_TIMESTAMP,
-    sale_price DECIMAL,
+    sale_price DECIMAL(8,2),
     date_returned DATE CHECK (date_returned>= sale_date) /* See biz rule PurchasesReturnDateRule*/
 );
 
@@ -87,4 +87,13 @@ VALUES ('2','1','2017-12-14','990',NULL),
 INSERT INTO trials (customer_id, rug_id,trial_start_date,date_expected_back,trial_date_returned)
 VALUES ('2','3','2017-12-14','2017-12-25','2017-12-26'),
        ('1','4','2017-12-16','2017-12-27','2017-12-28');
+
+
+
+SELECT rugs.rug_id, rugs.purchase_price,rugs.markup_percent,(rugs.purchase_price+(rugs.purchase_price*rugs.markup_percent)) AS list_price
+FROM  rugs;
+
+SELECT rugs.rug_id, rugs.purchase_price,purchases.sale_price,(purchases.sale_price-rugs.purchase_price) AS net_profit
+FROM  rugs
+INNER JOIN purchases ON purchases.rug_id = rugs.rug_id;
 
