@@ -90,10 +90,10 @@ VALUES ('2','3','2017-12-14','2017-12-25','2017-12-26'),
 
 
 
-SELECT rugs.rug_id, rugs.purchase_price,rugs.markup_percent,(rugs.purchase_price+(rugs.purchase_price*rugs.markup_percent)) AS list_price
+CREATE VIEW rugs_list_price_view AS SELECT rugs.rug_id, rugs.purchase_price,rugs.markup_percent,(rugs.purchase_price+(rugs.purchase_price*rugs.markup_percent)) AS list_price
 FROM  rugs;
 
-SELECT rugs.rug_id, rugs.purchase_price,purchases.sale_price,(purchases.sale_price-rugs.purchase_price) AS net_profit
+CREATE VIEW net_profit_view AS SELECT rugs.rug_id, rugs.purchase_price,purchases.sale_price,(purchases.sale_price-rugs.purchase_price) AS net_profit
 FROM  rugs
 INNER JOIN purchases ON purchases.rug_id = rugs.rug_id;
 
