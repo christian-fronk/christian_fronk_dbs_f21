@@ -1,3 +1,4 @@
+-- WB: Looks good Christian. See some comments about multi-part, and validated fields below.
 /*
   Lab 05: Implementing Rug Database
   CSC 362 Database Systems
@@ -17,8 +18,9 @@ CREATE TABLE rugs (
     origin_country   VARCHAR(50),
     year_made  YEAR,
     style     VARCHAR(50),
-    main_material       VARCHAR(50),
-    dimensions        VARCHAR(6),
+    main_material       VARCHAR(50), -- WB: Ideally, this would be validated, with an FK constraint
+    -- referencing a table of common rug materials. The same foes with style, origin country.
+    dimensions        VARCHAR(6), -- WB: This should really be two numeric fields, length and width.
     purchase_price DECIMAL(8,2),
     date_acquired     DATE,
     markup_percent DECIMAL (6,2)
