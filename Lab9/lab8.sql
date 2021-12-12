@@ -1,3 +1,7 @@
+-- WB: Good work Christian. Note that the procedure for trading pokemon, and the 
+-- WB: trigger on trainer_party members actually conflict with each other. The procedure
+-- WB: doesn't complete because the trigger prevents it.
+
 DROP DATABASE IF EXISTS trade_pkmn;
 CREATE DATABASE trade_pkmn;
 USE trade_pkmn;
